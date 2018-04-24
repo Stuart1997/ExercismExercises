@@ -27,7 +27,7 @@ object BracketPush extends App {
       val bracketPattern = """(\[\]|\(\)|\{\})"""                 //[] or () or {}
       val regex: Regex = s"""(.*?)$bracketPattern(.*?)""".r       //Checks if one of the sets of brackets is found more than once
       val removed: String = decrementer match {
-        case regex(_, _, _) =>                                    //Checks if the regex pattern contains 3 groups: (.*?) - the bracket matches - (.*?)
+        case regex(_, _, _) =>                                    //Checks if the regex pattern contains 3 groups: (.*?), the bracket matches, and (.*?)
           go(decrementer.replaceAll(bracketPattern, ""))          //Removes the valid bracket pair in this loop, calls go again so that it can return the new string to recycle the loop
         case x => x                                               //Returns either the empty string or the string at the point at which it is fully validated
       }
