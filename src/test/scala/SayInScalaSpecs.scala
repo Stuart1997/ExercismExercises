@@ -72,6 +72,13 @@ class SayInScalaSpecs extends WordSpec with Matchers {
     }
   }
 
+  "100006" should {
+    "return 'one hundred thousand six'" in {
+      val number = 100006
+      SayInScala.readNumber(number) shouldBe "one hundred thousand six"
+    }
+  }
+
   "1234567" should {
     "return 'one million two hundred thirty four thousand five hundred sixty seven'" in {
       val number = 1234567
@@ -90,6 +97,20 @@ class SayInScalaSpecs extends WordSpec with Matchers {
     "return 'one hundred twenty three million four hundred fifty six thousand seven hundred eighty nine'" in {
       val number = 123456789
       SayInScala.readNumber(number) shouldBe "one hundred twenty three million four hundred fifty six thousand seven hundred eighty nine"
+    }
+  }
+
+  "100000009" should {
+    "return 'one hundred million nine'" in {
+      val number = 100000009
+      SayInScala.readNumber(number) shouldBe "one hundred million nine"
+    }
+  }
+
+  "100050009" should {
+    "return 'one hundred million fifty thousand nine'" in {
+      val number = 100050009
+      SayInScala.readNumber(number) shouldBe "one hundred million fifty thousand nine"
     }
   }
 }
